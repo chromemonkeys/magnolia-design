@@ -14,7 +14,7 @@ const ContactDemos = () => {
     };
 
     // Shared Modal Component
-    const ContactModal = ({ onClose }) => (
+    const ContactModal: React.FC<{ onClose: () => void }> = ({ onClose }) => (
         <div
             className="fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center"
             onClick={() => onClose()}
