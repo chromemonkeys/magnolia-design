@@ -28,6 +28,13 @@ const HomePage = () => {
       textColor: "text-black"
     },
     {
+      title: "Magnolia Animation",
+      path: "/animation",
+      description: "Interactive scroll-based animation showcasing the Magnolia Collection through a series of elegant frame transitions. Experience our signature visuals in motion.",
+      bgColor: "bg-white",
+      textColor: "text-black"
+    },
+    {
       title: "Combined Layout Light",
       path: "/combined",
       description: "Integration of heading typography with body content on light backgrounds, showing how different elements work together in harmony.",
