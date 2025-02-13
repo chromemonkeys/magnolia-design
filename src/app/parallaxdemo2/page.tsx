@@ -103,10 +103,18 @@ const ParallaxDemo = () => {
                 }
 
                 @media (min-width: 768px) {
-                    .content-columns {
+                    /* Light background sections */
+                    .bg-white .content-columns {
                         column-count: 2;
                         column-gap: 3rem;
                         column-rule: 1px solid var(--debiblue);
+                    }
+                    
+                    /* Dark background sections */
+                    .bg-black .content-columns {
+                        column-count: 2;
+                        column-gap: 3rem;
+                        column-rule: 1px solid var(--darkblue);
                     }
                 }
             `}</style>
@@ -169,10 +177,20 @@ const ParallaxDemo = () => {
                                     }`}>
                                     {section.title}
                                 </h2>
-                                <div className="w-24 h-px mx-auto mb-6" style={{ backgroundColor: 'var(--debiblue)' }} role="presentation" />
+                                <div
+                                    className="w-24 h-px mx-auto mb-6"
+                                    style={{
+                                        backgroundColor: isDark ? 'var(--darkblue)' : 'var(--debiblue)'
+                                    }}
+                                    role="presentation"
+                                />
                                 {section.subtitle && (
-                                    <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words"
-                                        style={{ color: 'var(--darkblue)' }}>
+                                    <p
+                                        className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words"
+                                        style={{
+                                            color: isDark ? 'var(--debiblue)' : 'var(--darkblue)'
+                                        }}
+                                    >
                                         {section.subtitle}
                                     </p>
                                 )}
@@ -187,6 +205,9 @@ const ParallaxDemo = () => {
                     </div>
                 );
             })}
+
+
+
             {/* Contact Section */}
             <section
                 id="contact"
@@ -205,7 +226,7 @@ const ParallaxDemo = () => {
                                 className="flex flex-col items-center group rounded-lg hover:bg-gray-50 transition-colors w-full"
                             >
                                 <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                    <Phone className="w-8 h-8 text-[#69baff]" />
+                                    <Phone className="w-8 h-8 text-[#003b80]" />
                                 </div>
                                 <span className="font-optima tracking-wider text-lg">Call Us</span>
                                 <span className="font-caslon mt-1 text-gray-600">+1234567890</span>
@@ -216,7 +237,7 @@ const ParallaxDemo = () => {
                                 className="flex flex-col items-center group rounded-lg hover:bg-gray-50 transition-colors w-full"
                             >
                                 <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                    <Mail className="w-8 h-8 text-[#69baff]" />
+                                    <Mail className="w-8 h-8 text-[#003b80]" />
                                 </div>
                                 <span className="font-optima tracking-wider text-lg">Email Us</span>
                                 <span className="font-caslon mt-1 text-gray-600">hello@example.com</span>
@@ -229,7 +250,7 @@ const ParallaxDemo = () => {
                                 className="flex flex-col items-center group rounded-lg hover:bg-gray-50 transition-colors w-full"
                             >
                                 <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                    <Instagram className="w-8 h-8 text-[#69baff]" />
+                                    <Instagram className="w-8 h-8 text-[#003b80]" />
                                 </div>
                                 <span className="font-optima tracking-wider text-lg">Follow Us</span>
                                 <span className="font-caslon mt-1 text-gray-600">@example</span>
