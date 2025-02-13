@@ -124,22 +124,23 @@ const ParallaxDemo = () => {
 
             {/* Splash Section */}
             <section
-                className="min-h-screen w-full bg-white relative flex flex-col items-center"
+                className="h-screen w-full bg-white relative flex flex-col"
                 role="banner"
                 aria-label="Welcome to the Magnolia Collection"
             >
-                {/* Text moved above image */}
-                <div className="relative z-10 text-center text-black px-4 sm:px-6 w-full">
-                    <h1 className="font-bodoni text-4xl sm:text-5xl md:text-7xl mb-4 sm:mb-6 md:mb-8 leading-none">
-                        THE MAGNOLIA COLLECTION
-                    </h1>
-                    <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase text-[#69baff]">
-                        WHERE EXCEPTIONAL IS FOUND
-                    </p>
-                </div>
+                {/* Container for both text and image with vertical centering */}
+                <div className="flex flex-col items-center justify-center h-full">
+                    {/* Text above */}
+                    <div className="text-center text-black px-4 sm:px-6 w-full mb-8">
+                        <h1 className="font-bodoni text-4xl sm:text-5xl md:text-7xl mb-4 sm:mb-6 md:mb-8 leading-none">
+                            THE MAGNOLIA COLLECTION
+                        </h1>
+                        <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase text-[#69baff]">
+                            WHERE EXCEPTIONAL IS FOUND
+                        </p>
+                    </div>
 
-                {/* Image container */}
-                <div className="flex-1 w-full relative flex items-center justify-center">
+                    {/* Image container */}
                     <div className="relative w-full max-w-[800px] aspect-square">
                         <Image
                             src="/images/magnolia-pink-white.jpg"
