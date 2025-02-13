@@ -118,17 +118,17 @@ const ParallaxDemo = () => {
                 aria-label="Welcome to the Magnolia Collection"
             >
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    {/* Text Container */}
-                    <div className="text-center px-4 sm:px-6 w-full space-y-4">
-                        <h1 className="font-bodoni text-3xl sm:text-5xl md:text-6xl leading-tight">
+                    {/* Text Container - Added max-width constraint */}
+                    <div className="text-center px-4 sm:px-6 w-full max-w-[1200px] mx-auto">
+                        <h1 className="font-bodoni text-3xl sm:text-5xl md:text-6xl xl:text-7xl leading-tight">
                             THE MAGNOLIA COLLECTION
                         </h1>
-                        <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase text-darkblue">
+                        <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mt-4" style={{ color: 'var(--darkblue)' }}>
                             WHERE EXCEPTIONAL IS FOUND
                         </p>
                     </div>
 
-                    {/* Image Container with padding */}
+                    {/* Image Container */}
                     <div className="relative w-full max-w-[800px] aspect-square mt-8 px-4 sm:px-8">
                         <Image
                             src="/images/magnolia-pink-white.jpg"
@@ -143,13 +143,10 @@ const ParallaxDemo = () => {
             </section>
 
             {/* Content Sections */}
-            {/* Content Sections */}
             {sections.map((section, index) => {
-                // Determine if this section should have dark or light theme
-                const isDark = index % 2 === 0; // Even indices will be dark theme
+                const isDark = index % 2 === 0;
                 return (
                     <div key={index} className="relative">
-                        {/* Image Section - Restored bg-fixed for parallax */}
                         <section
                             className="min-h-screen w-full bg-no-repeat bg-fixed bg-cover bg-center relative"
                             style={{
@@ -161,20 +158,21 @@ const ParallaxDemo = () => {
                             aria-label={`${section.title} section`}
                         />
 
-                        {/* Text Content Section */}
                         <section
-                            className={`min-h-screen w-full relative flex items-center py-16 md:py-24 ${isDark ? 'bg-black text-white' : 'bg-white text-black'
+                            className={`min-h-screen w-full relative flex items-center py-16 md:py-24 ${isDark ? 'bg-black' : 'bg-white'
                                 }`}
                             role="region"
                             aria-label={`About ${section.title}`}
                         >
                             <div className="w-full px-4 sm:px-8 md:px-16 max-w-4xl mx-auto">
-                                <h2 className="font-bodoni text-3xl sm:text-5xl md:text-7xl mb-4 sm:mb-6 md:mb-8 leading-none break-words">
+                                <h2 className={`font-bodoni text-3xl sm:text-5xl md:text-7xl mb-4 sm:mb-6 md:mb-8 leading-none break-words ${isDark ? 'text-white' : 'text-black'
+                                    }`}>
                                     {section.title}
                                 </h2>
-                                <div className="w-24 h-px bg-[#69baff] mx-auto mb-6" role="presentation" />
+                                <div className="w-24 h-px mx-auto mb-6" style={{ backgroundColor: 'var(--debiblue)' }} role="presentation" />
                                 {section.subtitle && (
-                                    <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words text-darkblue">
+                                    <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words"
+                                        style={{ color: 'var(--darkblue)' }}>
                                         {section.subtitle}
                                     </p>
                                 )}
@@ -189,7 +187,6 @@ const ParallaxDemo = () => {
                     </div>
                 );
             })}
-
             {/* Contact Section */}
             <section
                 id="contact"
