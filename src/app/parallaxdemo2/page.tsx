@@ -78,38 +78,27 @@ const ParallaxDemo = () => {
                 />
             </div>
 
+            {/* Style Updates */}
             <style jsx>{`
                 @keyframes glow1 {
-                    0% {
-                        transform: scale(1);
-                        opacity: 0.4;
-                    }
-                    100% {
-                        transform: scale(2);
-                        opacity: 0;
-                    }
+                    0% { transform: scale(1); opacity: 0.4; }
+                    100% { transform: scale(2); opacity: 0; }
                 }
 
                 @keyframes glow2 {
-                    0% {
-                        transform: scale(1);
-                        opacity: 0.4;
-                    }
-                    100% {
-                        transform: scale(1.7);
-                        opacity: 0;
-                    }
+                    0% { transform: scale(1); opacity: 0.4; }
+                    100% { transform: scale(1.7); opacity: 0; }
                 }
 
                 .animate-glow-1 {
                     animation: glow1 3s ease-out infinite;
-                    border: 4px solid #A9A9A9;
+                    border: 4px solid var(--border);
                     border-radius: 50%;
                 }
 
                 .animate-glow-2 {
                     animation: glow2 3s ease-out infinite 1.5s;
-                    border: 4px solid #A9A9A9;
+                    border: 4px solid var(--border);
                     border-radius: 50%;
                 }
 
@@ -117,31 +106,30 @@ const ParallaxDemo = () => {
                     .content-columns {
                         column-count: 2;
                         column-gap: 3rem;
-                        column-rule: 1px solid #69baff;
+                        column-rule: 1px solid var(--debiblue);
                     }
                 }
             `}</style>
 
             {/* Splash Section */}
             <section
-                className="h-screen w-full bg-white relative flex flex-col"
+                className="h-screen w-full bg-white relative"
                 role="banner"
                 aria-label="Welcome to the Magnolia Collection"
             >
-                {/* Container for both text and image with vertical centering */}
-                <div className="flex flex-col items-center justify-center h-full">
-                    {/* Text above */}
-                    <div className="text-center text-black px-4 sm:px-6 w-full mb-8">
-                        <h1 className="font-bodoni text-4xl sm:text-5xl md:text-7xl mb-4 sm:mb-6 md:mb-8 leading-none">
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    {/* Text Container */}
+                    <div className="text-center px-4 sm:px-6 w-full space-y-4">
+                        <h1 className="font-bodoni text-3xl sm:text-5xl md:text-6xl leading-tight">
                             THE MAGNOLIA COLLECTION
                         </h1>
-                        <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words text-darkblue">
+                        <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase text-darkblue">
                             WHERE EXCEPTIONAL IS FOUND
                         </p>
                     </div>
 
-                    {/* Image container */}
-                    <div className="relative w-full max-w-[800px] aspect-square">
+                    {/* Image Container with padding */}
+                    <div className="relative w-full max-w-[800px] aspect-square mt-8 px-4 sm:px-8">
                         <Image
                             src="/images/magnolia-pink-white.jpg"
                             alt="Magnolia Collection hero image"

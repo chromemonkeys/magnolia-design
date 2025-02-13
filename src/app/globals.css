@@ -8,6 +8,20 @@
   --darkblue: #003b80;
   --debiblue: #69baff;
   --text: #2b73ff;
+
+  /* Extended blue shades */
+  --blue-100: #e6f3ff;
+  --blue-200: #bde2ff;
+  --blue-300: #94d1ff;
+  --blue-400: #69baff;
+  /* matches debiblue */
+  --blue-500: #2b73ff;
+  /* matches text */
+  --blue-600: #1a5cd9;
+  --blue-700: #003b80;
+  /* matches darkblue */
+  --blue-800: #002b66;
+  --blue-900: #001a4d;
 }
 
 @media (prefers-color-scheme: dark) {
