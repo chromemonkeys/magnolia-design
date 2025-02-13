@@ -135,7 +135,7 @@ const ParallaxDemo = () => {
                         <h1 className="font-bodoni text-4xl sm:text-5xl md:text-7xl mb-4 sm:mb-6 md:mb-8 leading-none">
                             THE MAGNOLIA COLLECTION
                         </h1>
-                        <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase text-[#69baff]">
+                        <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words text-debiblue">
                             WHERE EXCEPTIONAL IS FOUND
                         </p>
                     </div>
@@ -186,7 +186,7 @@ const ParallaxDemo = () => {
                                 </h2>
                                 <div className="w-24 h-px bg-[#69baff] mx-auto mb-6" role="presentation" />
                                 {section.subtitle && (
-                                    <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words">
+                                    <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words text-debiblue">
                                         {section.subtitle}
                                     </p>
                                 )}
