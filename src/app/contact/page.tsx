@@ -5,7 +5,7 @@ import { Phone, Mail, Instagram, X } from 'lucide-react';
 
 const ContactDemos = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [activeDemo, setActiveDemo] = useState(null);
+    const [activeDemo, setActiveDemo] = useState<string | null>(null);
 
     const contactInfo = {
         phone: '+1234567890',
