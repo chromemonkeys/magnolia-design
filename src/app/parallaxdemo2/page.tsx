@@ -129,7 +129,7 @@ const ParallaxDemo = () => {
                 aria-label="Welcome to the Magnolia Collection"
             >
                 {/* Text moved above image */}
-                <div className="relative z-10 text-center text-black px-4 sm:px-6 w-full pt-16 mb-8">
+                <div className="relative z-10 text-center text-black px-4 sm:px-6 w-full">
                     <h1 className="font-bodoni text-4xl sm:text-5xl md:text-7xl mb-4 sm:mb-6 md:mb-8 leading-none">
                         THE MAGNOLIA COLLECTION
                     </h1>
