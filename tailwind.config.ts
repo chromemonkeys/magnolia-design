@@ -12,6 +12,16 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        didot: ['var(--font-didot)', 'serif'],
+        bodoni: ['var(--font-bodoni)', 'serif'],
+        caslon: ['var(--font-caslon)', 'serif'],
+        garamond: ['var(--font-garamond)', 'serif'],
+        modern: ['var(--font-modern)', 'serif'],
+        compressed: ['var(--font-compressed)', 'serif'],
+        decorative: ['var(--font-decorative)', 'serif'],
+        optima: ['Optima', 'sans-serif'],
+      }
     },
   },
   plugins: [],

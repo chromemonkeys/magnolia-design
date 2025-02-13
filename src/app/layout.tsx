@@ -2,6 +2,46 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+
+import {
+  Playfair_Display,
+  Bodoni_Moda,
+  Libre_Caslon_Text,
+  Cormorant_Garamond,
+  UnifrakturMaguntia,
+} from 'next/font/google';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-didot'
+});
+
+const bodoni = Bodoni_Moda({
+  subsets: ['latin'],
+  variable: '--font-bodoni'
+});
+
+const caslon = Libre_Caslon_Text({
+  weight: ['400', '700'],  // Specifying weights for Caslon
+  subsets: ['latin'],
+  variable: '--font-caslon'
+});
+
+const garamond = Cormorant_Garamond({
+  weight: ['400', '500', '600', '700'],  // Adding required weights for Garamond
+  subsets: ['latin'],
+  variable: '--font-garamond'
+});
+
+
+// For decorative headlines
+const fraktur = UnifrakturMaguntia({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-decorative'
+});
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,10 +65,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${bodoni.variable} ${caslon.variable} ${garamond.variable} ${fraktur.variable} antialiased`}
       >
         {children}
       </body>
     </html>
   );
 }
+
+/*  */
