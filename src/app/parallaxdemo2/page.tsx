@@ -119,14 +119,14 @@ const ParallaxDemo = () => {
                 }
             `}</style>
 
-            {/* Splash Section */}
+            {/* Splash Section - Fixed version */}
             <section
-                className="h-screen w-full bg-white relative"
+                className="min-h-screen w-full bg-white relative flex items-center justify-center py-8"
                 role="banner"
                 aria-label="Welcome to the Magnolia Collection"
             >
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    {/* Text Container - Added max-width constraint */}
+                <div className="w-full flex flex-col items-center justify-center">
+                    {/* Text Container */}
                     <div className="text-center px-4 sm:px-6 w-full max-w-[1200px] mx-auto">
                         <h1 className="font-bodoni text-3xl sm:text-5xl md:text-6xl xl:text-7xl leading-tight">
                             THE MAGNOLIA COLLECTION
@@ -137,15 +137,17 @@ const ParallaxDemo = () => {
                     </div>
 
                     {/* Image Container */}
-                    <div className="relative w-full max-w-[800px] aspect-square mt-8 px-4 sm:px-8">
-                        <Image
-                            src="/images/magnolia-pink-white.jpg"
-                            alt="Magnolia Collection hero image"
-                            fill
-                            className="object-contain"
-                            priority
-                            sizes="(max-width: 768px) 100vw, 800px"
-                        />
+                    <div className="relative w-full max-w-[800px] mt-8 px-4 sm:px-8">
+                        <div className="relative" style={{ paddingBottom: '100%' }}>
+                            <Image
+                                src="/images/magnolia-pink-white.jpg"
+                                alt="Magnolia Collection hero image"
+                                fill
+                                className="object-contain"
+                                priority
+                                sizes="(max-width: 768px) 100vw, 800px"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
