@@ -5,12 +5,40 @@ import { useState, useEffect, useCallback } from 'react';
 export default function AnimationPage() {
     const [currentFrame, setCurrentFrame] = useState<number>(1);
     const [nextFrame, setNextFrame] = useState<number>(1);
-    const [isPlaying, setIsPlaying] = useState<boolean>(true);
+    const [isPlaying, setIsPlaying] = useState<boolean>(false); // Start as false until images are loaded
     const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+    const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
     const totalFrames: number = 13;
     const frameDelay: number = 50;
     const transitionDuration: number = 50;
     const scrollSensitivity: number = 3;
+
+    // Preload images
+    useEffect(() => {
+        const preloadImages = async () => {
+            try {
+                const imagePromises = Array.from({ length: totalFrames }, (_, i) => {
+                    return new Promise((resolve, reject) => {
+                        const img = new Image();
+                        img.src = `/images/magnolia-frames/frame_${i + 1}.jpg`;
+                        img.onload = resolve;
+                        img.onerror = reject;
+                    });
+                });
+
+                await Promise.all(imagePromises);
+                setImagesLoaded(true);
+                setIsPlaying(true); // Start playing once images are loaded
+            } catch (error) {
+                console.error('Error preloading images:', error);
+                // Still set as loaded to prevent infinite loading state
+                setImagesLoaded(true);
+                setIsPlaying(true);
+            }
+        };
+
+        preloadImages();
+    }, [totalFrames]);
 
     const changeFrame = useCallback((newFrame: number) => {
         if (isTransitioning) return;
@@ -24,6 +52,7 @@ export default function AnimationPage() {
     }, [isTransitioning]);
 
     const handleScroll = useCallback((event: WheelEvent) => {
+        if (!imagesLoaded) return; // Prevent scroll handling until images are loaded
         event.preventDefault();
 
         if (event.deltaY < 0) {
@@ -38,7 +67,7 @@ export default function AnimationPage() {
                 changeFrame(next);
             }
         }
-    }, [currentFrame, totalFrames, isTransitioning, changeFrame]);
+    }, [currentFrame, totalFrames, isTransitioning, changeFrame, imagesLoaded]);
 
     useEffect(() => {
         const element = document.getElementById('animation-container');
@@ -49,7 +78,7 @@ export default function AnimationPage() {
     }, [handleScroll]);
 
     useEffect(() => {
-        if (!isPlaying || currentFrame === totalFrames || isTransitioning) return;
+        if (!isPlaying || !imagesLoaded || currentFrame === totalFrames || isTransitioning) return;
 
         const timer = setTimeout(() => {
             const next = currentFrame + 1;
@@ -61,7 +90,7 @@ export default function AnimationPage() {
         }, frameDelay);
 
         return () => clearTimeout(timer);
-    }, [currentFrame, isPlaying, totalFrames, isTransitioning, changeFrame]);
+    }, [currentFrame, isPlaying, totalFrames, isTransitioning, changeFrame, imagesLoaded]);
 
     return (
         <section
@@ -87,50 +116,65 @@ export default function AnimationPage() {
                     </p>
                 </div>
 
-                {/* Animation Container - Adjusted for rectangular aspect ratio */}
+                {/* Animation Container */}
                 <div className="relative w-full md:w-[90%] lg:w-full max-w-[800px] px-4 sm:px-8">
-                    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}> {/* 16:9 aspect ratio */}
-                        {/* Base layer - current frame */}
-                        <div className="absolute inset-0 w-full h-full">
-                            <img
-                                src={`/images/magnolia-frames/frame_${currentFrame}.jpg`}
-                                alt={`Magnolia animation frame ${currentFrame}`}
-                                className="w-full h-full object-contain"
-                                role="img"
-                            />
-                        </div>
-                        {/* Overlay layer - next frame */}
-                        <div
-                            className="absolute inset-0 w-full h-full transition-opacity duration-50"
-                            style={{
-                                opacity: nextFrame !== currentFrame ? 1 : 0,
-                            }}
-                        >
-                            <img
-                                src={`/images/magnolia-frames/frame_${nextFrame}.jpg`}
-                                alt={`Magnolia animation frame ${nextFrame}`}
-                                className="w-full h-full object-contain"
-                                role="img"
-                                aria-hidden={true}
-                            />
-                        </div>
+                    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                        {!imagesLoaded ? (
+                            // Loading state
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="text-white/70 font-optima tracking-wider text-sm">
+                                    Loading...
+                                </div>
+                            </div>
+                        ) : (
+                            <>
+                                {/* Base layer - current frame */}
+                                <div className="absolute inset-0 w-full h-full">
+                                    <img
+                                        src={`/images/magnolia-frames/frame_${currentFrame}.jpg`}
+                                        alt={`Magnolia animation frame ${currentFrame}`}
+                                        className="w-full h-full object-contain"
+                                        role="img"
+                                    />
+                                </div>
+                                {/* Overlay layer - next frame */}
+                                <div
+                                    className="absolute inset-0 w-full h-full transition-opacity duration-50"
+                                    style={{
+                                        opacity: nextFrame !== currentFrame ? 1 : 0,
+                                    }}
+                                >
+                                    <img
+                                        src={`/images/magnolia-frames/frame_${nextFrame}.jpg`}
+                                        alt={`Magnolia animation frame ${nextFrame}`}
+                                        className="w-full h-full object-contain"
+                                        role="img"
+                                        aria-hidden={true}
+                                    />
+                                </div>
+                            </>
+                        )}
                     </div>
                 </div>
 
-                {/* Scroll instruction */}
-                <div className="text-white/70 font-optima tracking-wider text-sm mt-6">
-                    Scroll up to rewind, down to advance
-                </div>
+                {/* Scroll instruction - Only show when images are loaded */}
+                {imagesLoaded && (
+                    <div className="text-white/70 font-optima tracking-wider text-sm mt-6">
+                        Scroll up to rewind, down to advance
+                    </div>
+                )}
             </div>
 
-            {/* Frame counter */}
-            <div
-                className="absolute top-4 right-4 text-white/70 font-optima tracking-wider"
-                role="status"
-                aria-live="polite"
-            >
-                Frame {currentFrame} of {totalFrames}
-            </div>
+            {/* Frame counter - Only show when images are loaded */}
+            {imagesLoaded && (
+                <div
+                    className="absolute top-4 right-4 text-white/70 font-optima tracking-wider"
+                    role="status"
+                    aria-live="polite"
+                >
+                    Frame {currentFrame} of {totalFrames}
+                </div>
+            )}
         </section>
     );
 }
