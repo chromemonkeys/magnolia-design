@@ -102,27 +102,27 @@ const AnimatedSplash: React.FC<AnimatedSplashProps> = () => {
     return (
         <section
             id="animation-container"
-            className="min-h-screen w-full bg-white relative flex items-center justify-center py-8"
+            className="min-h-screen w-full bg-white relative flex items-center justify-center py-8 text-black"
             role="banner"
             aria-label="Welcome to the Magnolia Collection"
         >
             <div className="w-full flex flex-col items-center justify-center">
                 {/* Text Container */}
                 <div className="text-center px-4 sm:px-6 w-full max-w-[1200px] mx-auto mb-8">
-                    <h1 className="font-thin font-didot text-4xl sm:text-5xl md:text-6xl xl:text-7xl">
+                    <h1 className="font-thin font-didot text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-black">
                         The Magnolia Collection
                     </h1>
                     <p className="font-optima text-xl tracking-[0.2em] uppercase mt-4"
-                        style={{ color: 'var(--darkblue)' }}>
+                        style={{ color: 'var(--darkblue)', backgroundColor: 'transparent' }}>
                         WHERE EXCEPTIONAL IS FOUND
                     </p>
                 </div>
 
                 {/* Animation Container */}
-                <div className="relative w-full max-w-[800px] px-4 sm:px-8">
+                <div className="relative w-full max-w-[800px] px-4 sm:px-8 bg-white">
                     <div className="relative w-full" style={{ paddingBottom: '100%' }}>
                         {!imagesLoaded ? (
-                            <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="absolute inset-0 flex items-center justify-center bg-white">
                                 <div className="text-gray-600 font-optima tracking-wider text-sm">
                                     Loading...
                                 </div>
@@ -130,7 +130,7 @@ const AnimatedSplash: React.FC<AnimatedSplashProps> = () => {
                         ) : (
                             <>
                                 {/* Base layer - current frame */}
-                                <div className="absolute inset-0 w-full h-full">
+                                <div className="absolute inset-0 w-full h-full bg-white">
                                     <img
                                         src={`/images/magnolia-frames/frame_${currentFrame}.jpg`}
                                         alt={`Magnolia animation frame ${currentFrame}`}
@@ -139,7 +139,7 @@ const AnimatedSplash: React.FC<AnimatedSplashProps> = () => {
                                 </div>
                                 {/* Overlay layer - next frame */}
                                 <div
-                                    className="absolute inset-0 w-full h-full transition-opacity duration-50"
+                                    className="absolute inset-0 w-full h-full transition-opacity duration-50 bg-white"
                                     style={{
                                         opacity: nextFrame !== currentFrame ? 1 : 0,
                                     }}
@@ -155,8 +155,6 @@ const AnimatedSplash: React.FC<AnimatedSplashProps> = () => {
                         )}
                     </div>
                 </div>
-
-
             </div>
         </section>
     );
