@@ -8,9 +8,9 @@ export default function AnimationPage() {
     const [isPlaying, setIsPlaying] = useState<boolean>(false); // Start as false until images are loaded
     const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
     const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
-    const totalFrames: number = 13;
+    const totalFrames: number = 10;
     const frameDelay: number = 50;
-    const transitionDuration: number = 50;
+    const transitionDuration: number = 120;
     const scrollSensitivity: number = 3;
 
     // Preload images

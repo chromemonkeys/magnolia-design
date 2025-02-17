@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Phone, Mail, Instagram } from 'lucide-react';
+import AnimatedSplash from './components/animatedsplash';
+
 
 const ParallaxDemo = () => {
     const [showButton, setShowButton] = useState(false);
@@ -28,41 +30,48 @@ const ParallaxDemo = () => {
         {
             title: "The Magnolia Collection",
             content: "Nestled in the emerald rolling hills of the Sunshine Coast hinterland a whisper from Maleny, The Magnolia Collection is an assemblage of exquisite wedding experts that lead the region in intimate elopements we call Magnolia Ceremonies.\n\nMeticulously curated to exceed expectations and delight the senses, Magnolia Ceremonies can be hosted at either our exquisitely designed private lakeside location, The Magnolia Lakehouse, or your choice from an exclusive selection of private and bespoke locations across the Hinterland and beyond.\n\nThe Magnolia Collection meticulously crafts your chosen venue with catering, creative planning, celebrancy services, photography, private transport, entertainment and accommodation as a single elegant hand-picked team of professionals focussed on absolute perfection.",
-            image: "/images/1.webp"
+            image: "/images/water-lilies-1.jpg",
+            image2: "/images/water-lilies-2.jpg"
         },
         {
             title: "Perfection Discovered",
             content: "The Magnolia Collection philosophy is an unrelenting belief that it is 'the little things that are the biggest'. This standard for the exceptional is reflected in every detail. Whether it be the procurement of fresh Italian white truffle for an unexpected flourish to an entrée. From the surprise of music orchestrated around one of your most cherished memories, to the delight of the water sparkling like diamonds throughout your ceremony as you float atop the Monet inspired lilies on our lake.\n\nThese are just a few of the little things discreetly sprinkled throughout your event in a perfect harmony for the senses, so every moment of your day, and every lasting memory, is exceptional.\n\nOur signature packages in the Collection are our four Magnolia Ceremony's.\n\nMeticulously designed and tailored with you. Discover your perfect Magnolia Ceremony.",
-            image: "/images/2.jpg"
+            image: "/images/cake-1.png",
+            image2: "/images/cake-2.png"
         },
         {
             title: "Reaching For The Stars Is Just The Beginning",
             subtitle: "STELLATA POA",
             content: "Limited only by your imagination and defining perfection without compromise the crown jewel in the collection is the 'Stellata'.\n\nExclusive use of our exquisitely styled grounds creatively styled to your exacting taste and wishes, promises a Magnolia Ceremony full of surprise and wonderment.\n\nAn award-winning private chef creates a unique 6 course degustation fine dining experience for you and your intimate guests on your private deck side soirée post ceremony celebration.\n\nA luxurious Arabian inspired and styled long and low grazing picnic under our glamorous pavilion tent, complete with co-ordinated mobile bar, champagne tower and personalised table service may be your wish.\n\nAsk our team about our pampered pets program, preferred musicians, private air charters, luxury accommodation options and so much more. Private chauffeur transfers for your guests and yourselves are included within all packages, as is the Grand Magnolia full suite Celebrancy service.\n\nNo request is too large, no detail too small",
-            image: "/images/3.jpg"
+            image: "/images/food-1.png",
+            image2: "/images/food-2.png"
         },
         {
             title: "Every Moment Exquisitely Handcrafted",
-            subtitle: "MICHELIA ALBA from $6250.00+GST",
+            subtitle: "MICHELIA ALBA from $6250+GST",
             content: "The Michelia Alba is an exquisitely curated collection of all of the exceptional necessities to create your dream day. Sprinkled liberally with delightful touches to captivate and enthral every moment provides a lifelong memory.\n\nTo begin, your guests and yourselves will enjoy being chauffeured driven to and from our gorgeous property from local accommodation. Sit back and enjoy the stunning views as we bring you safely to our stunning lakeside property.\n\nUpon arrival the Bridal studio awaits you. Surprises abound, and the grounds are dressed to perfection. We're ready to host a magical day sure to create memories that will last a lifetime.\n\nAn Arabian styled Pavilion Tent has been arranged for guest post-ceremony enjoyment and relaxation while you both steal moments together during wedding photography, later rejoining your guests in toast and cheer.\n\nLet's chat about the addition of a delicious graze to your package, after all your pavilion tent is set and ready to impress. Why not nibble while you sip and celebrate the future with those you hold closest to your hearts.\n\nPrivate chauffeur transfers are included within all packages, as is the Grand Magnolia full suite Celebrancy package. Choose your attire, photographer, HMU then leave the rest to us.",
-            image: "/images/magnolia-pink-white.jpg"
+            image: "/images/sparkling-1.png",
+            image2: "/images/sparkling-2.png"
         },
         {
             title: "Let Us Delight You",
-            subtitle: "GRANDIFLORA from $5350.00+GST",
+            subtitle: "GRANDIFLORA from $5350+GST",
             content: "Truly an exceptional package, Grandiflora offers aesthetically beautiful surrounds combined with a peppering of exquisite surprises created to indulge you.\n\nWith our focus on styling, your choices include a picture-perfect selection of custom created ceremony styling options designed specifically for Magnolia Lakehouse Maleny. From furnishing to florals and all in between you will want for nothing on your day of days.\n\nEnjoy exclusive use of the grounds for up to 5 hours; Our perfectly appointed Bridal Studio for two persons for 2 hours; The full Grand Magnolia Celebrancy suite of service with highly regarded civil celebrant Debi Latino guiding you from first contact to legally married; Custom ceremony scripting and arrangement of all official paperwork and processes; as well as being Chauffeur driven to and from local accommodation and our lakeside property so you can fully relax, enjoying every moment of your day.\n\nSome special touches to add to your Grandiflora Elopement experience may include a post ceremony elegant 'Soirée on the Deck' or 'Luxurious Picnic' on the grounds, inclusive expansive grazing board and non-alcoholic beverages; Wedding Cake, Fresh seasonal florals for both parties to the wedding, Champagne Tower, Ornate Serviced Bar Cart (BYO Alcohol); Musician and much more.\n\nHave something else in mind that doesn't appear here? Enquire and Let us spoil you.",
-            image: "/images/1.webp"
+            image: "/images/vows-1.png",
+            image2: "/images/vows-2.png"
+
         },
         {
             title: "Exceptional In Every Way",
-            subtitle: "LILIIFLORA from $4950.00+GST",
+            subtitle: "LILIIFLORA from $4950+GST",
             content: "At Magnolia Lakehouse Maleny, enjoying your day, your way means we listen and we care, customising elegant elopement packages to enhance your experience. It's collaboration and planning performed to perfection.\n\nYou'll discover our Liliiflora offering is no exception.\n\nWith little things meaning so much, we offer a picture-perfect selection of custom created ceremony styling options designed specifically for Magnolia Lakehouse Maleny.\n\nEnjoy exclusive use of the grounds for up to 3 hours. Our overwater deck, complete with built in gazebo, bar, seating and nothing but glass between yourselves and those perfect backdrops of the lake, will host your perfectly styled and planned ceremony. The Petite Magnolia Celebrancy suite of service is provided, with highly regarded civil celebrant Debi Latino guiding you from first contact to legally married.\n\nAs with all our packages, enjoying being Chauffeur driven to and from local accommodation and our lakeside property so you can fully relax making every moment count, is included in Liliiflora, as is use of our stunning Lakeside Atrium in case of inclement weather so you will never be far from the lake.",
-            image: "/images/2.jpg"
+            image: "/images/car-1.png",
+            image2: "/images/car-2.png"
         }
     ];
 
     return (
-        <main className="relative w-full" role="main" aria-label="Magnolia Collection showcase">
+        <main className="relative w-full overflow-x-hidden" role="main" aria-label="Magnolia Collection showcase">
             {/* Floating Action Button */}
             <div className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-40 transition-opacity duration-300 ${showButton ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <div className="absolute inset-0 animate-glow-1" />
@@ -90,6 +99,15 @@ const ParallaxDemo = () => {
                     100% { transform: scale(1.7); opacity: 0; }
                 }
 
+                @keyframes rotate {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+
+                .animate-rotate-slow {
+                    animation: rotate 120s linear infinite;
+                }
+
                 .animate-glow-1 {
                     animation: glow1 3s ease-out infinite;
                     border: 4px solid var(--border);
@@ -103,14 +121,12 @@ const ParallaxDemo = () => {
                 }
 
                 @media (min-width: 768px) {
-                    /* Light background sections */
                     .bg-white .content-columns {
                         column-count: 2;
                         column-gap: 3rem;
                         column-rule: 1px solid var(--debiblue);
                     }
                     
-                    /* Dark background sections */
                     .bg-black .content-columns {
                         column-count: 2;
                         column-gap: 3rem;
@@ -119,96 +135,108 @@ const ParallaxDemo = () => {
                 }
             `}</style>
 
-            {/* Splash Section - Fixed version */}
+            {/* Splash Section 
             <section
                 className="min-h-screen w-full bg-white relative flex items-center justify-center py-8"
                 role="banner"
                 aria-label="Welcome to the Magnolia Collection"
             >
                 <div className="w-full flex flex-col items-center justify-center">
-                    {/* Text Container */}
-                    <div className="text-center px-4 sm:px-6 w-full max-w-[1200px] mx-auto">
-                        <h1 className="font-bodoni text-3xl sm:text-5xl md:text-6xl xl:text-7xl leading-tight">
-                            THE MAGNOLIA COLLECTION
-                        </h1>
-                        <p className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mt-4" style={{ color: 'var(--darkblue)' }}>
-                            WHERE EXCEPTIONAL IS FOUND
-                        </p>
-                    </div>
+            <div className="text-center px-4 sm:px-6 w-full max-w-[1200px] mx-auto">
+                <h1 className="font-thin font-didot text-4xl sm:text-5xl md:text-6xl xl:text-7xl mb-4">
+                    The Magnolia Collection
+                </h1>
+                <p className="font-optima text-xl tracking-[0.2em] uppercase" style={{ color: 'var(--darkblue)' }}>
+                    WHERE EXCEPTIONAL IS FOUND
+                </p>
+            </div>
 
-                    {/* Image Container */}
-                    <div className="relative w-full max-w-[800px] mt-8 px-4 sm:px-8">
-                        <div className="relative" style={{ paddingBottom: '100%' }}>
-                            <Image
-                                src="/images/magnolia-pink-white.jpg"
-                                alt="Magnolia Collection hero image"
-                                fill
-                                className="object-contain"
-                                priority
-                                sizes="(max-width: 768px) 100vw, 800px"
-                            />
-                        </div>
-                    </div>
+            <div className="relative w-full max-w-[800px] mt-8 px-4 sm:px-8">
+                <div style={{ paddingBottom: '100%' }}>
+                    <Image
+                        src="/images/magnolia-pink-white.jpg"
+                        alt="Magnolia Collection hero image"
+                        fill
+                        className="object-contain"
+                        priority
+                        sizes="(max-width: 768px) 100vw, 800px"
+                    />
                 </div>
-            </section>
+            </div>
+        </div>
+            </section >
+            */}
+            <div className="w-full h-screen">
+                <AnimatedSplash />
+            </div>
+
 
             {/* Content Sections */}
-            {sections.map((section, index) => {
-                const isDark = index % 2 === 0;
-                return (
-                    <div key={index} className="relative">
-                        <section
-                            className="min-h-screen w-full bg-no-repeat bg-fixed bg-cover bg-center relative"
-                            style={{
-                                backgroundImage: section.image === "/images/magnolia-pink-white.jpg"
-                                    ? `url(/images/magnolia-white-black.jpg)`
-                                    : `url(${section.image})`
-                            }}
-                            role="region"
-                            aria-label={`${section.title} section`}
-                        />
+            {
+                sections.map((section, index) => {
+                    const isDark = index % 2 === 0;
+                    return (
+                        <div key={index} className="relative">
+                            {/* First background image section */}
+                            <section
+                                className="min-h-screen w-full bg-no-repeat bg-fixed bg-cover bg-center relative"
+                                style={{
+                                    backgroundImage: section.image === "/images/magnolia-pink-white.jpg"
+                                        ? `url(/images/magnolia-white-black.jpg)`
+                                        : `url(${section.image})`
+                                }}
+                                role="region"
+                                aria-label={`${section.title} first image`}
+                            />
 
-                        <section
-                            className={`min-h-screen w-full relative flex items-center py-16 md:py-24 ${isDark ? 'bg-black' : 'bg-white'
-                                }`}
-                            role="region"
-                            aria-label={`About ${section.title}`}
-                        >
-                            <div className="w-full px-4 sm:px-8 md:px-16 max-w-4xl mx-auto">
-                                <h2 className={`font-bodoni text-3xl sm:text-5xl md:text-7xl mb-4 sm:mb-6 md:mb-8 leading-none break-words ${isDark ? 'text-white' : 'text-black'
-                                    }`}>
-                                    {section.title}
-                                </h2>
-                                <div
-                                    className="w-24 h-px mx-auto mb-6"
-                                    style={{
-                                        backgroundColor: isDark ? 'var(--darkblue)' : 'var(--debiblue)'
-                                    }}
-                                    role="presentation"
+                            {/* Second background image section (if image2 exists) */}
+                            {section.image2 && (
+                                <section
+                                    className="min-h-screen w-full bg-no-repeat bg-fixed bg-cover bg-center relative"
+                                    style={{ backgroundImage: `url(${section.image2})` }}
+                                    role="region"
+                                    aria-label={`${section.title} second image`}
                                 />
-                                {section.subtitle && (
-                                    <p
-                                        className="font-optima text-sm sm:text-base md:text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words"
+                            )}
+
+                            {/* Content section */}
+                            <section
+                                className={`min-h-screen w-full relative flex items-center py-16 md:py-24 ${isDark ? 'bg-black' : 'bg-white'}`}
+                                role="region"
+                                aria-label={`About ${section.title}`}
+                            >
+                                <div className="w-full px-4 sm:px-8 md:px-16 max-w-4xl mx-auto">
+                                    <h2 className={`font-thin font-didot text-4xl sm:text-5xl md:text-6xl xl:text-7xl mb-4 break-words ${isDark ? 'text-white' : 'text-black'}`}>
+                                        {section.title}
+                                    </h2>
+                                    <div
+                                        className="w-24 h-px mx-auto mb-6"
                                         style={{
-                                            color: isDark ? 'var(--debiblue)' : 'var(--darkblue)'
+                                            backgroundColor: isDark ? 'var(--darkblue)' : 'var(--debiblue)'
                                         }}
-                                    >
-                                        {section.subtitle}
-                                    </p>
-                                )}
-                                <div className="content-columns">
-                                    <div className={`font-caslon text-base sm:text-lg md:text-xl leading-relaxed whitespace-pre-line break-words ${isDark ? 'text-gray-200' : 'text-gray-800'
-                                        }`}>
-                                        {section.content}
+                                        role="presentation"
+                                    />
+                                    {section.subtitle && (
+                                        <p
+                                            className="font-optima text-xl tracking-[0.2em] uppercase mb-6 sm:mb-8 break-words"
+                                            style={{
+                                                color: isDark ? 'var(--debiblue)' : 'var(--darkblue)'
+                                            }}
+                                        >
+                                            {section.subtitle}
+                                        </p>
+                                    )}
+                                    <div className="content-columns">
+                                        <div className={`font-caslon text-base sm:text-lg md:text-xl leading-relaxed whitespace-pre-line break-words ${isDark ? 'text-gray-200' : 'text-gray-800'}`}>
+                                            {section.content}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
-                    </div>
-                );
-            })}
-
-
+                            </section>
+                        </div>
+                    );
+                })
+            }
 
             {/* Contact Section */}
             <section
@@ -217,10 +245,10 @@ const ParallaxDemo = () => {
             >
                 <div className="absolute inset-0 flex flex-col items-center pt-16 pb-32">
                     <div className="w-full max-w-4xl mx-auto text-center px-4">
-                        <h2 className="font-bodoni text-4xl sm:text-5xl md:text-6xl mb-4">
+                        <h2 className="font-thin font-didot text-4xl sm:text-5xl md:text-6xl xl:text-7xl mb-4">
                             Contact Us Now For An Obligation Free Quotation
                         </h2>
-                        <div className="w-24 h-px bg-[#69baff] mx-auto mb-12" role="presentation" />
+                        <div className="w-24 h-px bg-[#A66060] mx-auto mb-12" role="presentation" />
 
                         <div className="flex flex-col gap-8 items-center max-w-xs mx-auto">
                             <a
@@ -228,7 +256,7 @@ const ParallaxDemo = () => {
                                 className="flex flex-col items-center group rounded-lg hover:bg-gray-50 transition-colors w-full"
                             >
                                 <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                    <Phone className="w-8 h-8 text-[#003b80]" />
+                                    <Phone className="w-8 h-8 text-[#BF9B93]" />
                                 </div>
                                 <span className="font-optima tracking-wider text-lg">Call Us</span>
                                 <span className="font-caslon mt-1 text-gray-600">+1234567890</span>
@@ -239,7 +267,7 @@ const ParallaxDemo = () => {
                                 className="flex flex-col items-center group rounded-lg hover:bg-gray-50 transition-colors w-full"
                             >
                                 <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                    <Mail className="w-8 h-8 text-[#003b80]" />
+                                    <Mail className="w-8 h-8 text-[#BF9B93]" />
                                 </div>
                                 <span className="font-optima tracking-wider text-lg">Email Us</span>
                                 <span className="font-caslon mt-1 text-gray-600">hello@example.com</span>
@@ -252,7 +280,7 @@ const ParallaxDemo = () => {
                                 className="flex flex-col items-center group rounded-lg hover:bg-gray-50 transition-colors w-full"
                             >
                                 <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                    <Instagram className="w-8 h-8 text-[#003b80]" />
+                                    <Instagram className="w-8 h-8 text-[#BF9B93]" />
                                 </div>
                                 <span className="font-optima tracking-wider text-lg">Follow Us</span>
                                 <span className="font-caslon mt-1 text-gray-600">@example</span>
@@ -261,7 +289,7 @@ const ParallaxDemo = () => {
                     </div>
                 </div>
             </section>
-        </main>
+        </main >
     );
 };
 
